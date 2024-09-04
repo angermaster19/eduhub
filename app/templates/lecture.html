@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectures</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #4CAF50;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Content area styling */
+        .content {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* List styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li {
+            margin: 20px 0; /* Added margin for space between items */
+        }
+
+        ul li a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #4CAF50;
+            padding: 15px 30px; /* Increased left and right padding */
+            border: 2px solid #4CAF50;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        ul li a:hover {
+            background-color: #4CAF50;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .navbar h1 {
+                font-size: 22px;
+            }
+
+            .content h1 {
+                font-size: 20px;
+            }
+
+            ul li a {
+                font-size: 18px;
+                padding: 12px 24px; /* Adjusted padding for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <h1 class="navbar-brand">Neet 2024</h1>
+        </div>
+    </nav>
+    <div class="container content">
+        <h1>Lectures for {{ chapter.name }}</h1>
+        <ul>
+            {% for lecture in lectures %}
+                <li><a href="{% url 'lecture_detail' slug=lecture.slug %}">{{ lecture.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Reva Industries. All rights reserved.</p>
+    </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
